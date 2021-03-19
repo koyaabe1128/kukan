@@ -1,0 +1,61 @@
+<%= form_with(model: event, local:true,) do |f| %>
+<div class="row mt-4">
+  <div class="col-4">
+    <%= f.label :title, "イベント名", class: "h5" %>
+  </div>
+  <div class="col-8">
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+</div>
+<div class="row mt-4">
+  <div class="col-4">
+    <%= f.label :start_time, "日時", class: "h5" %>
+  </div>
+  <div class="col-8">
+    <%= f.text_field :start_time, class: "form-control" %>
+  </div>
+</div>
+<div class="row mt-4">
+  <div class="col-4">
+    <%= f.label :place, "場所", class: "h5" %>
+  </div>
+  <div class="col-8">
+    <%= f.text_field :place, class: "form-control" %>
+  </div>
+</div>
+<div class="row justify-content-end mt-4">
+  <div class="col-8">
+    <%= f.select :prefecture, Event.prefectures.keys,{ include_blank: "選択してください"}, { class: "form-control"} %>
+  </div>
+</div>
+<div class="row mt-4">
+  <div class="col-4">
+    <%= f.label :price, "料金", class: "h5" %>
+  </div>
+  <div class="col-8">
+    <%= f.text_field :price, class: "form-control" %>
+  </div>
+</div>
+<div class="row mt-4">
+    <div class="col-4">
+    <%= f.label :genre, "ジャンル", class: "h5" %>
+  </div>
+  <div class="col-8">
+    <%= f.select :genre, Event.genres.keys,{ include_blank: "選択してください"}, { class: "form-control"} %>
+  </div>
+</div>
+<div class="row mt-4">
+    <div class="col-4">
+    <%= f.label :detail, "イベント説明", class: "h5" %>
+  </div>
+  <div class="col-8">
+    <%= f.text_area :detail, class: "form-control" %>
+  </div>
+</div>
+<div class ="row my-5">
+  <div class ="mx-auto">
+    <%= f.submit "投稿する", class: "submit-btn" %>
+  </div>
+</div>
+
+<% end %>

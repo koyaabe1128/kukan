@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row mb-5">
+    <div class="col-6 mx-auto">
+      <div class="row">
+        <div class="mx-auto">
+          <%= link_to "イベント", search_events_path, class: "" %>
+          <%= link_to "ユーザー", search_users_path, class: "" %>
+        </div>
+      </div>
+      <h4 class="mt-5">検索条件</h4>
+      <%= form_with url: events_path, method: :get, local: true do |f| %>
+      <div class ="form-group">
+        <%= f.label :keyword, "キーワード", class: "font-weight-bold mt-4" %>
+        <%= f.text_field :keyword, class: "form-control" %>
+      </div>
+      <div class ="form-group">
+        <%= f.label :start_time, "日時", class: "font-weight-bold mt-3" %>
+        <%= f.text_field :start_time, class: "form-control" %>
+      </div>
+      <div class ="form-group">
+        <%= f.label :kind, "イベントの種類", class: "font-weight-bold mt-3" %>
+        <%= f.select :kind, Event.kinds.keys,{ include_blank: '選択してください'}, { class: "form-control"} %>
+      </div>
+      <div class ="form-group">
+        <%= f.label :genre, "ジャンル", class: "font-weight-bold mt-3" %>
+        <%= f.select :genre, Event.genres.keys,{ include_blank: '選択してください'}, { class: "form-control"} %>
+      </div>
+      <div class ="form-group">
+        <%= f.label :prefecture, "都道府県", class: "font-weight-bold mt-3" %>
+        <%= f.select :prefecture, Event.prefectures.keys,{ include_blank: '選択してください'}, { class: "form-control"} %>
+      </div>
+      
+      <div class ="row">
+        <div class ="mx-auto my-5">
+          <%= f.submit "検索する", class: "submit-btn" %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

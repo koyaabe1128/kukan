@@ -11,6 +11,13 @@ Rails.application.routes.draw do
       get :withdrawal
       get :password_resets
     end
+    collection do
+      get :search
+    end
   end
-  resources :events, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  resources :events, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+    collection do
+      get :search
+    end
+  end
 end

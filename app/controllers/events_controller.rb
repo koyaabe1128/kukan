@@ -45,6 +45,9 @@ class EventsController < ApplicationController
     redirect_to user_path(@event.user)
   end
   
+  def search
+  end
+  
   private
   
   #Strong Parameter
