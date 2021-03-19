@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+  
+  before_action :require_user_logged_in, only: [:index, :show, :edit, :destroy, :password_resets, :setting, :withdrawal]
+  before_action :correct_user, only: [:edit, :update, :destroy, :password_resets, :setting, :withdrawal]
+  
+  
   def index
     @users = User.all
   end
@@ -38,6 +43,18 @@ class UsersController < ApplicationController
   def destroy
   end
   
+  def password_resets
+    @user = User.find(params[:id])
+  end
+  
+  def setting
+    @user = User.find(params[:id])
+  end
+  
+  def withdrawal
+    @user = User.find(params[:id])
+  end
+  
   private
   
   #Strong Parameter
@@ -47,5 +64,11 @@ class UsersController < ApplicationController
   
   def user_profile_params
     params.require(:user).permit(:name, :image, :introduction, :genre, :prefecture)
+  end
+  
+  #本人か確認する
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to current_user unless current_user.id == @user.id
   end
 end
