@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  place: MyString
+  price: MyString
+  detail: MyString
+  image: MyString
+  kind: 1
+  genre: 1
+  prefecture: 1
+  start_time: 2021-03-19 07:45:15
+  finish_time: 2021-03-19 07:45:15
+  user: one
+
+two:
+  title: MyString
+  place: MyString
+  price: MyString
+  detail: MyString
+  image: MyString
+  kind: 1
+  genre: 1
+  prefecture: 1
+  start_time: 2021-03-19 07:45:15
+  finish_time: 2021-03-19 07:45:15
+  user: two

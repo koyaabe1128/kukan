@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: "top#index"
+  get "about", to: "top#about"
   get "login", to: "sessions#new"
   post "login", to: "sessions#create"
   delete "logout", to: "sessions#destroy"
@@ -11,4 +12,5 @@ Rails.application.routes.draw do
       get :password_resets
     end
   end
+  resources :events, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 end
