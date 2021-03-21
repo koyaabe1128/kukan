@@ -12,6 +12,9 @@ class Event < ApplicationRecord
   validates :start_time, presence: true
   validates :finish_time, presence: true
   
+  #モデルとの関連付けmount_uploader :carrierwave用に作ったカラム名, carrierwaveの設定ファイルのクラス名
+  mount_uploader :image, ImageUploader
+  
   #種類に整数を割り当てる
   enum kind: { プライベートレッスン:0, 練習会:1 }
   #ジャンルに整数に割り当てる

@@ -6,6 +6,8 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   validates :introduction, length: { maximum: 255 }
   
+  has_many :events, dependent: :destroy
+  
   #パスワードを暗号化して保存する
   has_secure_password
   

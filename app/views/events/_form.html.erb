@@ -1,61 +1,97 @@
-<%= form_with(model: event, local:true,) do |f| %>
-<div class="row mt-4">
-  <div class="col-4">
-    <%= f.label :title, "イベント名", class: "h5" %>
+<div class="row bg-light border">
+  <div class="col-10 mx-auto">
+  <%= form_with(model: event, local:true,) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+  <div class="row form-group mt-5">
+    <h6 class="col-4 mt-5">イベント画像</h6>
+    <div class="col-8 mt-5">
+      <%= f.label :image do %>
+        <% if event.image? %>
+          <%= image_tag event.image.url, class: "img-responsive center-block event-img" %>
+        <% else %>
+          <%= image_tag "/assets/default.jpg", :size => "330x330" %>
+        <% end %>
+        <%= f.file_field :image, style: "display:none"  %>
+      <% end %>
+    </div>
   </div>
-  <div class="col-8">
-    <%= f.text_field :title, class: "form-control" %>
-  </div>
-</div>
-<div class="row mt-4">
-  <div class="col-4">
-    <%= f.label :start_time, "日時", class: "h5" %>
-  </div>
-  <div class="col-8">
-    <%= f.text_field :start_time, class: "form-control" %>
-  </div>
-</div>
-<div class="row mt-4">
-  <div class="col-4">
-    <%= f.label :place, "場所", class: "h5" %>
-  </div>
-  <div class="col-8">
-    <%= f.text_field :place, class: "form-control" %>
-  </div>
-</div>
-<div class="row justify-content-end mt-4">
-  <div class="col-8">
-    <%= f.select :prefecture, Event.prefectures.keys,{ include_blank: "選択してください"}, { class: "form-control"} %>
-  </div>
-</div>
-<div class="row mt-4">
-  <div class="col-4">
-    <%= f.label :price, "料金", class: "h5" %>
-  </div>
-  <div class="col-8">
-    <%= f.text_field :price, class: "form-control" %>
-  </div>
-</div>
-<div class="row mt-4">
+  <div class="row form-group mt-4">
     <div class="col-4">
-    <%= f.label :genre, "ジャンル", class: "h5" %>
+      <%= f.label :title, "イベント名", class: "h6" %>
+    </div>
+    <div class="col-8">
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
   </div>
-  <div class="col-8">
-    <%= f.select :genre, Event.genres.keys,{ include_blank: "選択してください"}, { class: "form-control"} %>
-  </div>
-</div>
-<div class="row mt-4">
+  <div class="row form-group mt-4">
     <div class="col-4">
-    <%= f.label :detail, "イベント説明", class: "h5" %>
+      <%= f.label :start_time, "日時", class: "h6" %>
+    </div>
+    <div class="col-8">
+      <%= raw sprintf(f.datetime_select(:start_time, {use_month_numbers: true, start_year: (Time.now.year), end_year: (Time.now.year + 2), minute_step: 10, date_separator: '%s', datetime_separator: '%s'}, { class: "form-control datetime_form"}), '年', '月', '日') %>
+    </div>
   </div>
-  <div class="col-8">
-    <%= f.text_area :detail, class: "form-control" %>
+  <div class="row form-group mt-4">
+    <div class="col-4">
+      <%= f.label :finish_time, "場所", class: "h6" %>
+    </div>
+    <div class="col-8">
+      <%= raw sprintf(f.time_select(:finish_time, {minute_step: 10, time_separator: '%s'}, { class: "form-control datetime_form"}), ":") %>
+    </div>
+  </div>
+  <div class="row form-group mt-4">
+    <div class="col-4">
+      <%= f.label :place, "場所", class: "h6" %>
+    </div>
+    <div class="col-8">
+      <%= f.text_field :place, class: "form-control" %>
+    </div>
+  </div>
+  <div class="row form-group justify-content-end mt-4">
+    <div class="col-4">
+      <%= f.label :prefecture, "場所", class: "h6" %>
+    </div>
+    <div class="col-8">
+      <%= f.select :prefecture, Event.prefectures.keys,{ include_blank: "選択してください"}, { class: "form-control"} %>
+    </div>
+  </div>
+  <div class="row form-group mt-4">
+    <div class="col-4">
+      <%= f.label :price, "料金", class: "h6" %>
+    </div>
+    <div class="col-8">
+      <%= f.text_field :price, class: "form-control" %>
+    </div>
+  </div>
+  <div class="row form-group mt-4">
+    <div class="col-4">
+      <%= f.label :kind, "種類", class: "h6" %>
+    </div>
+    <div class="col-8">
+      <%= f.select :kind, Event.kinds.keys,{ include_blank: "選択してください"}, { class: "form-control"} %>
+    </div>
+  </div>
+  <div class="row form-group mt-4">
+      <div class="col-4">
+      <%= f.label :genre, "ジャンル", class: "h6" %>
+    </div>
+    <div class="col-8">
+      <%= f.select :genre, Event.genres.keys,{ include_blank: "選択してください"}, { class: "form-control"} %>
+    </div>
+  </div>
+  <div class="row form-group mt-4">
+      <div class="col-4">
+      <%= f.label :detail, "イベント説明", class: "h6" %>
+    </div>
+    <div class="col-8">
+      <%= f.text_area :detail, class: "form-control" %>
+    </div>
+  </div>
+  <div class ="row form-group my-5">
+    <div class ="mx-auto">
+      <%= f.submit "投稿する", class: "submit-btn" %>
+    </div>
+  </div>
+  <% end %>
   </div>
 </div>
-<div class ="row my-5">
-  <div class ="mx-auto">
-    <%= f.submit "投稿する", class: "submit-btn" %>
-  </div>
-</div>
-
-<% end %>

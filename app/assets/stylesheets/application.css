@@ -44,3 +44,6 @@ body {
 .attention-messages {
     color: #8E8E8E;
 }
+.datetime_form {
+    width: 80px;
+}
