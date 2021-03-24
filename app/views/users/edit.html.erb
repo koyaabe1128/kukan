@@ -15,33 +15,25 @@
                 </div>
               </div>
               <div class="row mt-5">
-                <div class="col-4">
-                  <%= f.label :name, "ユーザー名" %>
-                </div>
+                <%= f.label :name, "ユーザー名", class: "col-4 col-form-label" %>
                 <div class="col-8">
                   <%= f.text_field :name, class: "form-control" %>
                 </div>
               </div>
               <div class="row mt-5">
-                <div class="col-4">
-                  <%= f.label :prefecture, "活動場所" %>
-                </div>
+                <%= f.label :prefecture, "活動場所", class: "col-4 col-form-label" %>
                 <div class="col-8">
                   <%= f.select :prefecture, User.prefectures.keys,{ include_blank: "選択してください"}, { class: "form-control"} %>
                 </div>
               </div>
               <div class="row mt-5">
-                <div class="col-4">
-                  <%= f.label :genre, "ジャンル" %>
-                </div>
+                <%= f.label :genre, "ジャンル", class: "col-4 col-form-label" %>
                 <div class="col-8">
                   <%= f.select :genre, User.genres.keys,{ include_blank: "選択してください"}, { class: "form-control"} %>
                 </div>
               </div>
               <div class="row mt-5">
-                <div class="col-4">
-                  <%= f.label :introduction, "自己紹介" %>
-                </div>
+                <%= f.label :introduction, "自己紹介", class: "col-4 col-form-label" %>
                 <div class="col-8">
                   <%= f.text_area :introduction, class: "form-control" %>
                 </div>
