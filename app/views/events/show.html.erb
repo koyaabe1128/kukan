@@ -1,12 +1,46 @@
 <div class="container">
   <div class="row">
-    <div class="col-10 mx-auto">
+    <div class="col-9 mx-auto">
       <div class="row">
-        <div class="col-6 bg-info">
-          a
+        <h5 class="ml-3"><%= @event.title %></h5>
+      </div>
+      <div class="row mt-5">
+        <div class="col-5">
+          <div class="row">
+            <div class="col-3">主催者</div>
+            <div class="col-9"><%= @event.user.name %></div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-3">日時</div>
+            <div class="col-9"><%= @event.user.name %></div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-3">場所</div>
+            <div class="col-9"><%= @event.prefecture %> <%= @event.place %></div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-3">料金</div>
+            <div class="col-9"><%= @event.price %></div>
+          </div>
+          <div class="row mt-3 mb-5">
+            <div class="col-3">ジャンル</div>
+            <div class="col-9"><%= @event.genre %></div>
+          </div>
+          <div>説明欄</div>
+          <div class="mt-4"><%= @event.detail %></div>
         </div>
-        <div class="col-6 bg-primary">
-          b
+        <div class="col-5 offset-2">   
+          <div class="row">
+            <%= image_tag @event.image.url, class: "border event-show-img" %>
+            <% if current_user == @event.user %>
+              <%= link_to edit_event_path(@event) do %>
+                <div class="mt-3 mr-3"><i class="far fa-edit"></i>編集する</div>
+              <% end %>
+              <%= link_to @event, method: :delete, data: { confirm: "本当に削除しますか？" } do %>
+                <div class="mt-3"><i class="far fa-trash-alt"></i>削除する</div>
+              <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

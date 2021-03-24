@@ -1,0 +1,7 @@
+<% @events.each do |event| %>
+  <%= link_to event_path(event), class: "link-base" do %>
+    <%= image_tag event.image.url, class: "mt-5 event-show-img border" %>
+    <h6 class="mt-2"><%= event.title %></h6>
+  <% end %>
+<% end %>
+ 

@@ -1,7 +1,12 @@
 <div class="container">
-  <div class="row">
-    <div class="col-10 mx-auto">
-      
+  <div class="row mt-5">
+    <div class="col-3 offset-2">
+      <h4 class="sidebar_fixed d-flex align-items-center", style="height: 500px;">
+        イベント
+      </h4>
+    </div>
+    <div class="col-4 offset-1">
+      <%= render "events", events: @events %>
     </div>
   </div>
 </div>

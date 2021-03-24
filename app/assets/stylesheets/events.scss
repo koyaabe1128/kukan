@@ -4,5 +4,16 @@
 .event-img {
     width: 330px;
     height: 330px;
+    border-radius: 3px;
     object-fit: cover;
+}
+.event-show-img {
+    width: 350px;
+    height: 350px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+.sidebar_fixed {
+  position: sticky;
+  top: 60px;
 }

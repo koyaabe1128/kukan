@@ -47,3 +47,7 @@ body {
 .datetime_form {
     width: 80px;
 }
+.link-base {
+    color: #262626;
+    text-decoration: none !important;
+}
