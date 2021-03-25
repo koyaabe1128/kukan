@@ -49,5 +49,7 @@ body {
 }
 .link-base {
     color: #262626;
-    text-decoration: none !important;
+}
+.like-btn {
+    color :#e54747;
 }

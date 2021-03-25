@@ -1,0 +1,11 @@
+<% if current_user.like?(event) %>
+    <%= link_to event_like_path(event), method: :delete do %>
+      <i class="fas fa-heart like-btn"></i>
+    <% end %>
+<% else %>
+    <%= link_to event_likes_path(event), method: :post do %>
+       <i class="far fa-heart"></i>
+    <% end %>
+<% end %>
+
+

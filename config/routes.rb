@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :create, :edit, :update, :destroy] do
     member do
       get :followings
+      get :likes
       get :setting
       get :withdrawal
       get :password_resets
@@ -16,9 +17,12 @@ Rails.application.routes.draw do
       get :search
     end
   end
-  resources :events, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+  resources :events do
+      resources :likes, only: [:create, :destroy]
     collection do
       get :search
     end
   end
+  resources :relationships, only: [:create, :destroy]
+  
 end

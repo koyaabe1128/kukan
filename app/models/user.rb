@@ -6,12 +6,16 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   validates :introduction, length: { maximum: 255 }
   
+  #アソシエーション
   has_many :events, dependent: :destroy
   
   has_many :relationships, dependent: :destroy
   has_many :followings, through: :relationships, source: :follow
   has_many :reverses_of_relationship, class_name: "Relationship", foreign_key: "follow_id", dependent: :destroy
   has_many :followers, through: :reverses_of_relationship, source: :user
+  
+  has_many :likes, dependent: :destroy
+  has_many :like_events, through: :likes, source: :event
   
   #パスワードを暗号化して保存する
   has_secure_password
@@ -49,4 +53,8 @@ class User < ApplicationRecord
     relationship.destroy if relationship
   end
   
+  #いいねしているかを確認するメソッド
+  def like?(other_event)
+    self.like_events.include?(other_event)
+  end
 end

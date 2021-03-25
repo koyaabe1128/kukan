@@ -12,6 +12,9 @@ class Event < ApplicationRecord
   validates :start_time, presence: true
   validates :finish_time, presence: true
   
+  #アソシエーション
+  has_many :likes, dependent: :destroy
+  
   #モデルとの関連付けmount_uploader :carrierwave用に作ったカラム名, carrierwaveの設定ファイルのクラス名
   mount_uploader :image, ImageUploader
   
