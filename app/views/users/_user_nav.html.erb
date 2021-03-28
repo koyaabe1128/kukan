@@ -1,6 +1,16 @@
-<div class="row bg-info">
-  <div class="mx-auto icon">
-    <%= link_to "(仮)設定", edit_user_path(user) %>
+<div class="row">
+  <div class="mx-auto user-nav-btn">
+    <% if user.image? %>
+      <%= image_tag user.image.url, class: "icon border" %>
+    <% else %>
+      <%= image_tag "/assets/default.jpg", class: "icon border" %>
+    <% end %>
+    
+    <% if current_user == @user %>
+      <%= link_to edit_user_path, class: "setting-btn" do %>
+        <i class="fas fa-cog"></i>
+      <% end %>
+    <% end %>
   </div>
 </div>
 <div class="row">

@@ -20,6 +20,9 @@ class User < ApplicationRecord
   #パスワードを暗号化して保存する
   has_secure_password
   
+  #モデルとの関連付け　mount_uploader :carrierwave用に作ったカラム名, carrierwaveの設定ファイルのクラス名
+  mount_uploader :image, ImageUploader
+  
   #ジャンルに整数を割り当てる
   enum genre: { HIPHOP:0, HOUSE:1, LOCK:2, POP:3, JAZZ:4, PUNKING:5, BREAK:6, FREESTYLE:7, その他:8 }
   #都道府県に整数を割り当てる

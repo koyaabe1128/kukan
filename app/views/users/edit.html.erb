@@ -1,41 +1,48 @@
 <div class="container">
-  <div class="row mt-5">
+  <div class="row mb-5">
     <div class="col-10 mx-auto">
       <div class="row">
         <div class="col-3 border-right">
           <%= render "users/user_setting_nav", user: @user %>
         </div>
-        <div class="col-9 bg-primary">
+        <div class="col-9 my-4">
           <%= form_with(model: @user, local:true) do |f| %>
           <div class="row">
-            <div class="col-10 mx-auto mt-4 bg-success">
+            <div class="col-10 mx-auto">
               <div class="row">
-                <div class="mx-auto icon">
-                  a
+                <div class="mx-auto">
+                  <%= f.label :image do %>
+                    <% if @user.image? %>
+                      <%= image_tag @user.image.url, class: "img-responsive center-block icon border" %>
+                    <% else %>
+                      <%= image_tag "/assets/default.jpg", class: "icon" %>
+                    <% end %>
+                  <%= f.file_field :image, style: "display:none"  %>
+                <% end %>
                 </div>
               </div>
               <div class="row mt-5">
                 <%= f.label :name, "ユーザー名", class: "col-4 col-form-label" %>
                 <div class="col-8">
-                  <%= f.text_field :name, class: "form-control" %>
+                  <%= f.text_field :name, class: "form-control form-control-sm" %>
                 </div>
               </div>
               <div class="row mt-5">
                 <%= f.label :prefecture, "活動場所", class: "col-4 col-form-label" %>
                 <div class="col-8">
-                  <%= f.select :prefecture, User.prefectures.keys,{ include_blank: "選択してください"}, { class: "form-control"} %>
+                  <%= f.select :prefecture, User.prefectures.keys,{ include_blank: "選択してください"}, { class: "form-control form-control-sm"} %>
                 </div>
               </div>
               <div class="row mt-5">
                 <%= f.label :genre, "ジャンル", class: "col-4 col-form-label" %>
                 <div class="col-8">
-                  <%= f.select :genre, User.genres.keys,{ include_blank: "選択してください"}, { class: "form-control"} %>
+                  <%= f.select :genre, User.genres.keys,{ include_blank: "選択してください"}, { class: "form-control form-control-sm"} %>
                 </div>
               </div>
               <div class="row mt-5">
                 <%= f.label :introduction, "自己紹介", class: "col-4 col-form-label" %>
                 <div class="col-8">
-                  <%= f.text_area :introduction, class: "form-control" %>
+                  <%= f.text_area :introduction, class: "form-control form-control-sm" %>
                 </div>
               </div>
               <div class ="row mt-5">

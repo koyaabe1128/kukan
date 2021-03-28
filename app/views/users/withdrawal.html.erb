@@ -1,19 +1,19 @@
 <div class="container">
-  <div class="row mt-5">
+  <div class="row">
     <div class="col-10 mx-auto">
       <div class="row">
         <div class="col-3 border-right">
           <%= render "users/user_setting_nav", user: @user %>
         </div>
-        <div class="col-9 bg-primary">
-          <div class="row mt-4">
+        <div class="col-9 my-4">
+          <div class="row my-4">
             <div class="col-10 mx-auto">
               <h5 class="mb-4 font-weight-bold">退会確認</h5>
               <p class="mb-4">空間をご利用いただき、誠にありがとうございました。</p>
               <h6 class="mb-4 font-weight-bold">本当に退会しますか？</h6>
               <p class="mb-5">登録されたアカウント情報は完全に削除されます。<br>一度退会するとアカウントの復元はできません。</p>
               <div class="row"><%= link_to "退会する", "#", class: "submit-btn mx-auto mb-5" %></div>
-              <div class="mb-5"><%= link_to "＜　戻る", setting_user_path(@user), class: "simple-btn" %></div>
+              <div><%= link_to "＜　戻る", setting_user_path(@user), class: "simple-btn" %></div>
             </div>
           </div>
         </div>

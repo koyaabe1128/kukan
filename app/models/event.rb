@@ -15,7 +15,7 @@ class Event < ApplicationRecord
   #アソシエーション
   has_many :likes, dependent: :destroy
   
-  #モデルとの関連付けmount_uploader :carrierwave用に作ったカラム名, carrierwaveの設定ファイルのクラス名
+  #モデルとの関連付け　mount_uploader :carrierwave用に作ったカラム名, carrierwaveの設定ファイルのクラス名
   mount_uploader :image, ImageUploader
   
   #種類に整数を割り当てる
