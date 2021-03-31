@@ -1,38 +1,31 @@
-<div class="container">
-  <div class="row">
-    <div class="col-11 mx-auto">
+<nav class="navbar navbar-light fixed-top px-5 py-3">
+  <% if logged_in? %>
+    <a href="/events" class="navbar-brand ml-3">空間</a>
+  <% else %>
+    <a href="/" class="navbar-brand ml-3">空間</a>
+  <% end %>
+  <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+  <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+    <ul class="navbar-nav">
       <% if logged_in? %>
-        <nav class="navbar navbar-expand navbar-light my-5">
-          <a href="/events" class="navbar-brand">空間</a>
-          <ul class="navbar-nav">
-            <li class="nav-item"><a href="/events" class="nav-link">一覧</a></li>
-            <li class="nav-item">
-              <%= link_to user_path(current_user), class: "nav-link" do %>
-                <i class="far fa-user"></i>
-              <% end %>
-            </li>
-          </ul>
-        </nav>
+        <li class="nav-item"><%= link_to "プロフィール", user_path(current_user), class: "nav-link ml-3" %></li>
+        <li class="nav-item"><%= link_to "一覧", events_path, class: "nav-link ml-3" %></li>
+        <li class="nav-item"><%= link_to "探す", search_events_path, class: "nav-link ml-3" %></li>
+        <li class="nav-item"><%= link_to "ヘルプ", "#", class: "nav-link ml-3" %></li>
+        <li class="nav-item"><%= link_to "お問い合わせ", "#", class: "nav-link ml-3" %></li>
       <% else %>
-        <% if current_page?(root_path) %>
-          <nav class="navbar navbar-expand navbar-light my-5">
-            <ul class="navbar-nav">
-              <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
-              <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
-              <li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
-            </ul>
-          </nav>
-        <% else %>
-          <nav class="navbar navbar-expand navbar-light my-5">
-            <a href="/" class="navbar-brand">空間</a>
-            <ul class="navbar-nav">
-              <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
-              <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
-              <li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
-            </ul>
-          </nav>
-        <% end %>
+        <li class="nav-item"><%= link_to "空間について", "#", class: "nav-link ml-3" %></li>
+        <li class="nav-item"><%= link_to "一覧", events_path, class: "nav-link ml-3" %></li>
+        <li class="nav-item"><%= link_to "ログイン", login_path, class: "nav-link ml-3" %></li>
+        <li class="nav-item"><%= link_to "新規登録", signup_path, class: "nav-link ml-3" %></li>
+        <li class="nav-item"><%= link_to "ヘルプ", "#", class: "nav-link ml-3" %></li>
+        <li class="nav-item"><%= link_to "お問い合わせ", "#", class: "nav-link ml-3" %></li>
       <% end %>
-    </div>
+    </ul>
   </div>
-</div>
+</nav>
+
+  

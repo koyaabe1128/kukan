@@ -1,11 +1,12 @@
-<% if current_user.like?(event) %>
+<% if logged_in? %>
+  <% if current_user.like?(event) %>
     <%= link_to event_like_path(event), method: :delete do %>
-      <i class="fas fa-heart like-btn"></i>
+      <i class="fas fa-heart like-btn"></i>気になるを外す
     <% end %>
-<% else %>
+  <% else %>
     <%= link_to event_likes_path(event), method: :post do %>
-       <i class="far fa-heart"></i>
+      <i class="far fa-heart"></i>気になる
     <% end %>
+  <% end %>
 <% end %>
-
 

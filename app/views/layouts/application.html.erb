@@ -20,9 +20,5 @@
   <body>
     <%= render "layouts/navbar" %>
     <%= yield %>
-    
-    <% if current_page?(controller: "top") %>
-      <%= render "layouts/footer" %>
-    <% end %>
   </body>
 </html>

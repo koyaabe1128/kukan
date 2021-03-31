@@ -1,0 +1,9 @@
+<% if current_user.following?(user) %>
+  <%= link_to relationship_path(user), method: :delete, class: "follow-btn-2 border" do %>
+    <i class="fas fa-user-minus"></i>
+  <% end %>
+<% else %>
+  <%= link_to relationships_path(follow_id: user.id), method: :post, class: "follow-btn-2 border" do %>
+    <i class="fas fa-user-plus"></i>
+  <% end %>
+<% end %>

@@ -43,11 +43,19 @@ class UsersController < ApplicationController
   def destroy
   end
   
-  def password_resets
+  def followings
+    @user = User.find(params[:id])
+  end
+  
+  def likes
     @user = User.find(params[:id])
   end
   
   def setting
+    @user = User.find(params[:id])
+  end
+    
+  def password_resets
     @user = User.find(params[:id])
   end
   

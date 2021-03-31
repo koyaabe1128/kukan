@@ -14,12 +14,25 @@
  *= require_self
  */
 body {
-    font-family: 'TsukuARdGothic-Regular',sans-serif;
-    font-size: 15px;
-    color: #262626
+    font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.6px;
+    color: black;
+    padding-top: 84px;
 }
-.logo {
-    color: red;
+.navbar-brand {
+    font-family: "Yu Mincho", YuMincho;
+    font-size: 28px;
+    letter-spacing: 4px;
+}
+.navbar-light .navbar-toggler {
+    border-color: rgba(0,0,0,0);
+}
+.navbar-light .navbar-nav .nav-link {
+    color: #3e3a39;
+}
+.navbar-light {
+    background-color: white;
 }
 .footer-logo {
     color: red;
